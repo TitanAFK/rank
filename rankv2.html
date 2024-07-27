@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Rank</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Lobster&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+            padding: 50px 0;
+        }
+        .title {
+            font-family: 'Lobster', cursive;
+            font-size: 3rem;
+            color: #495057;
+        }
+        .rank-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+        .rank-image:hover {
+            transform: scale(1.05);
+        }
+        .rank-title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .points {
+            font-size: 1.5rem;
+            color: #007bff;
+        }
+        .table-container {
+            margin-top: 40px;
+        }
+        .note {
+            font-style: italic;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">User Rank</h1>
+        <div id="rank-content" class="mt-5">
+            <!-- Dynamic content will be inserted here -->
+        </div>
+
+        <!-- Table showing points range and corresponding ranks -->
+        <div class="table-container">
+            <h2>Rank Ranges</h2>
+            <table class="table table-bordered table-striped mt-4">
+                <thead>
+                    <tr>
+                        <th>Points Range</th>
+                        <th>Rank</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1 - 500</td>
+                        <td>Novice Learner</td>
+                    </tr>
+                    <tr>
+                        <td>501 - 1000</td>
+                        <td>Apprentice Scholar</td>
+                    </tr>
+                    <tr>
+                        <td>1001 - 1500</td>
+                        <td>Advance Scholar</td>
+                    </tr>
+                    <tr>
+                        <td>1501 - 2000</td>
+                        <td>Elite Scholar</td>
+                    </tr>
+                    <tr>
+                        <td>2001 - 2500</td>
+                        <td>Legendary Scholar</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="note">
+                <p>Note: For every right question the user answers, they are awarded 4 points.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sample data for the user
+        const userData = {
+            points: 1250,
+            rank: 'Advance Scholar',
+            rankImageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQE4Ri_tqsFxlkKtpals710srDcy5MWbdOdRg&s' // Replace with actual image URL
+        };
+
+        // Create the HTML content
+        const rankContent = `
+            <img src="${userData.rankImageUrl}" alt="${userData.rank}" class="rank-image">
+            <div class="rank-title">${userData.rank}</div>
+            <div class="points">Points: ${userData.points}</div>
+        `;
+
+        // Insert the content into the page
+        document.getElementById('rank-content').innerHTML = rankContent;
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
+
